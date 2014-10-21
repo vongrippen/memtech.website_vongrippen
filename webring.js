@@ -37,7 +37,7 @@ _webring.load = function() {
                 _webring.currentUser = _webring.userRegex.exec(url)[1].split('/')[0];
                 _webring.currentUserIndex = _webring.users.indexOf(_webring.currentUser);
                 _webring.prevUserIndex = _webring.currentUserIndex - 1;
-                _webring.randomIndex = _webring.CurrentUserIndex
+                _webring.randomIndex = _webring.currentUserIndex
                 while (_webring.randomIndex == _webring.currentUserIndex && _webring.length > 1) {
                     _webring.randomIndex = Math.floor(Math.random() * _webring.length)
                 }
