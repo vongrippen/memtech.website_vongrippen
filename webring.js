@@ -4,6 +4,14 @@
 // that will be created.
 
 var _webring = {};
+_webring.insertLink = function(selector, href, text) {
+    try {
+        document.querySelectorAll(selector)[0].innerHTML = ('<a href="' + href + '">' + text + '</a>');
+    }
+    catch(err) {
+        // Error :(
+    }
+}
 _webring.load = function() {
     _webring = {
         userRegex: /memtech\.website\/\~(.*)\//
@@ -31,6 +39,10 @@ _webring.load = function() {
                 _webring.currentUser = _webring.userRegex.exec(url)[1].split('/')[0];
                 _webring.currentUserIndex = _webring.users.indexOf(_webring.currentUser);
                 _webring.prevUserIndex = _webring.currentUserIndex - 1;
+                _webring.randomIndex = _webring.CurrentUserIndex
+                while (_webring.randomIndex == _webring.currentUserIndex && _webring.length > 1) {
+                    _webring.randomIndex = Math.floor(Math.random() * _webring.length)
+                }
                 if (_webring.prevUserIndex < 0) {
                     _webring.prevUserIndex = _webring.users.length - 1;
                 }
@@ -39,8 +51,9 @@ _webring.load = function() {
                     _webring.nextUserIndex = 0;
                 }
 
-                document.querySelectorAll('.webring_prev')[0].innerHTML = ('<a href="http://memtech.website/~' + _webring.users[_webring.prevUserIndex] + '/">Previous (' + _webring.users[_webring.prevUserIndex] + ')</a>')
-                document.querySelectorAll('.webring_next')[0].innerHTML = ('<a href="http://memtech.website/~' + _webring.users[_webring.nextUserIndex] + '/">Next (' + _webring.users[_webring.nextUserIndex] + ')</a>')
+                _webring.insertLink('.webring_prev', 'http://memtech.website/~' + _webring.users[_webring.prevUserIndex], 'Previous (' + _webring.users[_webring.prevUserIndex] + ')')
+                _webring.insertLink('.webring_rand', 'http://memtech.website/~' + _webring.users[_webring.randomIndex], 'Random')
+                _webring.insertLink('.webring_next', 'http://memtech.website/~' + _webring.users[_webring.nextUserIndex], 'Next (' + _webring.users[_webring.nextUserIndex] + ')')
             }
             else {
                 // Error :(
