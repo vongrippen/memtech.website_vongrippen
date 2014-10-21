@@ -13,9 +13,7 @@ _webring.insertLink = function(selector, href, text) {
     }
 }
 _webring.load = function() {
-    _webring = {
-        userRegex: /memtech\.website\/\~(.*)\//
-    };
+    _webring.userRegex = /memtech\.website\/\~(.*)\//;
 
     var rq = new XMLHttpRequest();
     rq.open('GET', 'http://memtech.website/~dpritchett/data/user_stats.json', true);
