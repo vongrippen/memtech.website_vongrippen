@@ -7,7 +7,18 @@
 		:javascript
 			_386 = { onePass: true, speedFactor: 0.5 };
 	%body{style: "visibility: hidden"}
-		%h1 Hello, world!
+		.navbar.navbar-inverse.navbar-fixed-top
+			.navbar-inner
+				.container
+					%button.btn.btn-navbar{type: 'button', data: {target: '.nav-collapse', toggle: 'collapse'}}
+					%a.brand{href: '#'} VONGRIPP.EXE
+					.nav-collapse.collapse
+						%ul.nav
+							%li.active
+								%a{href: '#'} Home
+							%span.webring
+								%li.prev
+								%li.next
 
 		%script{src: 'http://code.jquery.com/jquery.js'}
 		%script{src: 'bootstrap/js/bootstrap.min.js'}
