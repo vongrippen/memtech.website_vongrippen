@@ -5,8 +5,12 @@ $(function() {
     };
     $.getJSON('http://memtech.website/~dpritchett/data/user_stats.json', function(json) {
         var tempUsers = [];
+        var wrIndex = 0;
         for (var i = 0; i < json.users.length; i++) {
-            tempUsers[i] = json.users[i].name;
+            if (json.users[i].webringMember == true) {
+                tempUsers[wrIndex] = json.users[i].name;
+                wrIndex = wrIndex + 1;
+            }
         }
         _webring.users = tempUsers;
         var url = window.location.href;
