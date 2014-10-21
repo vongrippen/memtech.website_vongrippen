@@ -4,15 +4,15 @@
 // that will be created.
 
 var _webring = {};
-$(function() {
+_webring.load = function() {
     _webring = {
         userRegex: /memtech\.website\/\~(.*)\//
     };
 
-    request = new XMLHttpRequest();
-    request.open('GET', 'http://memtech.website/~dpritchett/data/user_stats.json', true);
+    var rq = new XMLHttpRequest();
+    rq.open('GET', 'http://memtech.website/~dpritchett/data/user_stats.json', true);
 
-    request.onreadystatechange = function() {
+    rq.onreadystatechange = function() {
         if (this.readyState === 4) {
             if (this.status >= 200 && this.status < 400) {
                 // Success!
@@ -39,8 +39,8 @@ $(function() {
                     _webring.nextUserIndex = 0;
                 }
 
-                document.querySelectorAll('.webring_prev').innerHTML('<a href="http://memtech.website/~' + _webring.users[_webring.prevUserIndex] + '/">Previous (' + _webring.users[_webring.prevUserIndex] + ')</a>')
-                document.querySelectorAll('.webring_next').innerHTML('<a href="http://memtech.website/~' + _webring.users[_webring.nextUserIndex] + '/">Next (' + _webring.users[_webring.nextUserIndex] + ')</a>')
+                document.querySelectorAll('.webring_prev')[0].innerHTML = ('<a href="http://memtech.website/~' + _webring.users[_webring.prevUserIndex] + '/">Previous (' + _webring.users[_webring.prevUserIndex] + ')</a>')
+                document.querySelectorAll('.webring_next')[0].innerHTML = ('<a href="http://memtech.website/~' + _webring.users[_webring.nextUserIndex] + '/">Next (' + _webring.users[_webring.nextUserIndex] + ')</a>')
             }
             else {
                 // Error :(
@@ -48,6 +48,17 @@ $(function() {
         }
     };
 
-    request.send();
-    request = null;
-})
+    rq.send();
+    rq = null;
+}
+
+
+if (document.addEventListener) {
+    document.addEventListener('DOMContentLoaded', _webring.load);
+}
+else {
+    document.attachEvent('onreadystatechange', function() {
+        if (document.readyState === 'interactive')
+            _webring.load();
+    });
+}
