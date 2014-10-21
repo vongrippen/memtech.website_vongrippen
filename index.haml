@@ -16,9 +16,14 @@
 						%ul.nav
 							%li.active
 								%a{href: '#'} Home
-							%li.webring_prev
-							%li.webring_rand
-							%li.webring_next
+							%li.dropdown
+								%a.dropdown-toggle{data:{toggle: 'dropdown'}, href: '#'}
+									Webring
+									%b.caret
+								%ul.dropdown-menu{role: 'menu', aria: {labelledby: 'dLabel'}}
+									%li.webring_prev
+									%li.webring_rand
+									%li.webring_next
 
 		%script{src: 'http://code.jquery.com/jquery.js'}
 		%script{src: 'bootstrap/js/bootstrap.min.js'}
