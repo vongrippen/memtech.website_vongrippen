@@ -1,3 +1,11 @@
+// Requirements:
+// jQuery
+
+// Usage:
+// Include JS
+// Add a .webring_prev element and a .webring_next element to wrap the links
+// that will be created.
+
 var _webring = {};
 $(function() {
     _webring = {
