@@ -38,8 +38,8 @@ _webring.load = function() {
                 _webring.currentUserIndex = _webring.users.indexOf(_webring.currentUser);
                 _webring.prevUserIndex = _webring.currentUserIndex - 1;
                 _webring.randomIndex = _webring.currentUserIndex
-                while (_webring.randomIndex == _webring.currentUserIndex && _webring.length > 1) {
-                    _webring.randomIndex = Math.floor(Math.random() * _webring.length)
+                while (_webring.randomIndex == _webring.currentUserIndex && _webring.users.length > 1) {
+                    _webring.randomIndex = Math.floor(Math.random() * _webring.users.length)
                 }
                 if (_webring.prevUserIndex < 0) {
                     _webring.prevUserIndex = _webring.users.length - 1;
