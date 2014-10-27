@@ -13,24 +13,23 @@
 	%body{style: "visibility: hidden"}
 		.navbar.navbar-inverse.navbar-fixed-top
 			.navbar-inner
-				.container
-					%button.btn.btn-navbar{type: 'button', data: {target: '.nav-collapse', toggle: 'collapse'}}
-					%a.brand{href: '#'} VONGRIPP.EXE
-					.nav-collapse.collapse
-						%ul.nav
-							%li.active
-								%a{href: '#'} Home
-							%li.dropdown
-								%a.dropdown-toggle{data:{toggle: 'dropdown'}, href: '#'}
-									Webring
-								%ul.dropdown-menu{role: 'menu', aria: {labelledby: 'dLabel'}}
-									%li.webring_prev
-									%li.webring_rand
-									%li.webring_next
-							%li.pull-right
-								%a
-									/# echo var="date_local"
+				%button.btn.btn-navbar{type: 'button', data: {target: '.nav-collapse', toggle: 'collapse'}}
+				%a.brand{href: '#'} VONGRIPP.EXE
+				.nav-collapse.collapse
+					%ul.nav
+						%li.active
+							%a{href: '#'} Home
+						%li.dropdown
+							%a.dropdown-toggle{data:{toggle: 'dropdown'}, href: '#'}
+								Webring
+							%ul.dropdown-menu{role: 'menu', aria: {labelledby: 'dLabel'}}
+								%li.webring_prev
+								%li.webring_rand
+								%li.webring_next
+						%li.pull-right
+							%a
+								/# echo var="date_local"
 
 		%script{src: 'http://code.jquery.com/jquery.js'}
 		%script{src: 'bootstrap/js/bootstrap.min.js'}
-		%script{src: 'http://memtech.website/~vongrippen/webring.js'}wat
+		%script{src: 'http://memtech.website/~vongrippen/webring.js'}
