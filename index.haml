@@ -23,13 +23,19 @@
 							%a.dropdown-toggle{data:{toggle: 'dropdown'}, href: '#'}
 								Webring
 							%ul.dropdown-menu{role: 'menu', aria: {labelledby: 'dLabel'}}
-								%li.webring_prev
-								%li.webring_rand
-								%li.webring_next
+								%li
+									%a.webring_prev
+										Previous
+								%li
+									%a.webring_rand
+										Random
+								%li
+									%a.webring_next
+										Next
 						%li.pull-right
 							%a{href: "#"}
 								/# echo var="date_local"
 
 		%script{src: 'http://code.jquery.com/jquery.js'}
 		%script{src: 'bootstrap/js/bootstrap.min.js'}
-		%script{src: 'http://memtech.website/~vongrippen/webring.js'}
+		%script{src: 'http://memtech.website/webring.js'}
